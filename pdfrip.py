@@ -34,16 +34,16 @@ def pdf_to_txt(path, output_path):
     pages = convert_from_path(path)
     with open(output_path, "a") as output_file:
         for page in pages:
-            page.save("out.png", "PNG")
+            page.save("out.jpg", "JPEG")
             # Perform OCR reading and store in output file.
-            output_file.write(pytesseract.image_to_string(Image.open("out.png")) + "\n")
-    os.remove("out.png")
+            output_file.write(pytesseract.image_to_string(Image.open("out.jpg")) + "\n")
+    os.remove("out.jpg")
 
 
 def construct_cocs(coc_filing_data):
     coc_quantity = max([len(coc_filing_data[field]) for field in coc_filing_data])
     cocs = []
-    
+
     for n in range(coc_quantity):
         cocs.append({})
 
@@ -85,10 +85,10 @@ if __name__ == "__main__":
 
             pdf_to_txt(path, output_file_name)
 
-            
+
             with open(output_file_name) as output_file:
                 coc_filing_data = get_coc_filing_data(output_file.read())
-            
+
             cocs = construct_cocs(coc_filing_data)
             coc_file_names = []
             for coc in cocs:
@@ -106,7 +106,7 @@ if __name__ == "__main__":
                 coc_file_names.append(coc_file_name)
 
             for coc_file_name in coc_file_names:
-                write_path = "{}\\{}".format(coc_dir_path, coc_file_name)    
+                write_path = "{}\\{}".format(coc_dir_path, coc_file_name)
                 path_to_check = write_path
                 coc_edition = 1
                 while True:
