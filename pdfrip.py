@@ -14,7 +14,7 @@ import pytesseract
 
 debug = False
 
-coc_dir_path = "U:\\Quality\\CERTIFICATE OF COMPLIANCE\\Vendor Provided COCs"
+coc_dir_path = r"U:\Quality\CERTIFICATE OF COMPLIANCE\Vendor Provided COCs"
 
 def get_coc_filing_data(ocr_text):
     if debug:
