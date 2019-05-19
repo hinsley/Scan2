@@ -21,8 +21,8 @@ IMAGE_FORMAT = "jpeg"
 OUTPUT_DIR = args.output
 
 with tempfile.TemporaryDirectory() as path:
-    images_from_bytes = convert_from_bytes(sys.stdin.buffer.read(), output_folder=path, fmt=IMAGE_FORMAT)
+    images = convert_from_bytes(sys.stdin.buffer.read(), output_folder=path, fmt=IMAGE_FORMAT)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    for index, image in enumerate(images_from_bytes):
+    for index, image in enumerate(images):
         image.save(os.path.join(OUTPUT_DIR,
                                 "Output {}.{}".format(index + 1, IMAGE_EXTENSION)))
