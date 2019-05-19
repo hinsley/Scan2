@@ -4,5 +4,5 @@ Command-line utility for generating meaningful destination paths and metadata fo
 ### To-Do
 
 - [X] PDF2JPG utility
-- [ ] Command-line OCR utility for JPG images
+- [ ] Command-line OCR utility for JPEG images
 - [ ] File annotation system (regex?) for PDFs converted to images and OCR'd
